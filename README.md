@@ -1,7 +1,9 @@
+**English** | **[한국어](README_ko.md)**
+
 <p align="center">
   <h1 align="center">clinical-research-mcp</h1>
   <p align="center">
-    <strong>PubMed + ClinicalTrials.gov + arXiv + Wikipedia. API 키 0개. 바로 사용.</strong>
+    <strong>PubMed + ClinicalTrials.gov + arXiv + Wikipedia. Zero API keys. Ready to use.</strong>
   </p>
 </p>
 
@@ -14,24 +16,24 @@
 
 ---
 
-**PubMed 의학 논문 + ClinicalTrials.gov 임상시험 + arXiv 생명정보학 + Wikipedia 개념 설명**을 하나의 리서치 파이프라인으로 결합한 MCP 서버입니다. **API 키가 전혀 필요 없습니다.** 한 번의 질문으로 논문 검색, 임상시험 추적, 의학 개념 설명까지 종합 보고서를 생성합니다.
+An MCP server that combines **PubMed medical papers + ClinicalTrials.gov clinical trials + arXiv biomedical papers + Wikipedia concept explanations** into a single research pipeline. **No API keys required.** One question generates a comprehensive report covering paper search, trial tracking, and medical concept explanations.
 
-## 왜 만들었나
+## Why This Exists
 
-의학 연구를 할 때 매번 반복하는 작업이 있습니다:
+Medical research involves the same repetitive tasks every time:
 
-1. PubMed에서 논문 검색하고 초록 읽기
-2. ClinicalTrials.gov에서 관련 임상시험 찾기 (UI가 매우 불편함)
-3. 모르는 용어 찾아보기
-4. 관련 논문 추적하기
+1. Search PubMed for papers and read abstracts
+2. Search ClinicalTrials.gov for related trials (the UI is notoriously painful)
+3. Look up unfamiliar terminology
+4. Track related papers and references
 
-사이트 4개, 탭 10개, 끝없는 복붙. **clinical-research-mcp**는 이 모든 걸 한 번의 도구 호출로 끝냅니다. 특히 **ClinicalTrials.gov 검색이 극적으로 편해집니다.**
+4 sites, 10 tabs, endless copy-paste. **clinical-research-mcp** does all of this in a single tool call. The ClinicalTrials.gov experience, in particular, becomes dramatically better.
 
-## 데모: `research_medical` 실행 결과
+## Demo: `research_medical` Output
 
-> **나:** "CGRP migraine treatment 관련 리서치 해줘"
+> **You:** "Research CGRP migraine treatment for me"
 
-> **Claude**가 `research_medical(topic="CGRP migraine treatment")`을 호출하면:
+> **Claude** calls `research_medical(topic="CGRP migraine treatment")`:
 
 ```
 # Medical Research Report: CGRP migraine treatment
@@ -91,28 +93,28 @@ Generated: 2026-03-21 17:00
 professional for medical decisions.*
 ```
 
-## 핵심 특징
+## Key Features
 
-- **API 키 0개** -- 설치하면 바로 사용. 키 발급, 설정 전혀 없음
-- **PubMed 논문 검색** -- 초록, 저자, 저널, 관련 논문까지
-- **ClinicalTrials.gov** -- 복잡한 웹사이트 대신 간단한 검색. 모집 상태, 기관, 설계 한눈에
-- **의학 면책 문구 자동 포함** -- 모든 출력에 "Always consult a healthcare professional" 표시
+- **Zero API keys** -- Install and use immediately. No registration, no configuration
+- **PubMed search** -- Abstracts, authors, journals, and related articles
+- **ClinicalTrials.gov** -- Simple search instead of the complex website. Recruitment status, sponsors, study design at a glance
+- **Medical disclaimer auto-included** -- Every output includes "Always consult a healthcare professional"
 
-## 기능 목록
+## Tools
 
-| 도구 | 설명 |
-|------|------|
-| `research_medical` | **핵심 기능.** PubMed + ClinicalTrials.gov + arXiv + Wikipedia 종합 의학 리서치 보고서 |
-| `search_pubmed` | PubMed 의학 논문 검색 (초록, 저자, 저널) |
-| `paper_detail` | PMID로 논문 상세 (전체 초록 + 관련 논문) |
-| `search_trials` | ClinicalTrials.gov 임상시험 검색 (상태 필터 가능) |
-| `trial_detail` | NCT ID로 임상시험 상세 (설계, 적격 기준, 기관) |
-| `get_medical_concept` | Wikipedia 의학 개념 설명 (한국어/영어) |
-| `api_status` | API 상태 확인 |
+| Tool | Description |
+|------|-------------|
+| `research_medical` | **Main tool.** PubMed + ClinicalTrials.gov + arXiv + Wikipedia comprehensive medical research report |
+| `search_pubmed` | Search PubMed for medical papers (abstracts, authors, journals) |
+| `paper_detail` | Get paper details by PMID (full abstract + related articles) |
+| `search_trials` | Search ClinicalTrials.gov (with status filter) |
+| `trial_detail` | Get trial details by NCT ID (design, eligibility, locations) |
+| `get_medical_concept` | Wikipedia medical concept explanation (multilingual) |
+| `api_status` | Check API availability |
 
-## 설치 방법
+## Installation
 
-### 자동 설치 (권장)
+### Automatic Setup (Recommended)
 
 ```bash
 git clone https://github.com/wjddusrb03/clinical-research-mcp.git
@@ -121,11 +123,11 @@ pip install -r requirements.txt
 python setup_wizard.py
 ```
 
-API 키 설정이 없습니다. 설치 후 Claude Desktop을 재시작하면 바로 사용할 수 있습니다.
+No API key setup required. Restart Claude Desktop after installation and you're ready to go.
 
-### 수동 설치
+### Manual Setup
 
-**1. 의존성 설치**
+**1. Install dependencies**
 
 ```bash
 git clone https://github.com/wjddusrb03/clinical-research-mcp.git
@@ -133,159 +135,159 @@ cd clinical-research-mcp
 pip install -r requirements.txt
 ```
 
-**2. Claude Desktop 설정에 추가**
+**2. Add to Claude Desktop config**
 
-Claude Desktop 설정 파일을 엽니다:
+Open your Claude Desktop config file:
 
 - **Windows:** `%APPDATA%\Claude\claude_desktop_config.json`
 - **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
 - **Linux:** `~/.config/claude/claude_desktop_config.json`
 
-`mcpServers` 항목에 다음을 추가합니다:
+Add the following to `mcpServers`:
 
 ```json
 {
   "mcpServers": {
     "clinical-research": {
       "command": "python",
-      "args": ["/전체/경로/clinical-research-mcp/server.py"]
+      "args": ["/full/path/to/clinical-research-mcp/server.py"]
     }
   }
 }
 ```
 
-Claude Desktop을 재시작합니다.
+Restart Claude Desktop.
 
-## API 구성
+## API Overview
 
-| API | 키 필요 | 제공 기능 |
-|-----|---------|-----------|
-| PubMed (NCBI E-utilities) | 불필요 | 의학 논문 검색, 초록, 관련 논문 |
-| ClinicalTrials.gov v2 | 불필요 | 임상시험 검색, 상태 추적, 상세 정보 |
-| arXiv | 불필요 | 생명정보학/의공학 논문 검색 |
-| Wikipedia | 불필요 | 의학 용어/개념 설명, 다국어 연결 |
+| API | Key Required | Features |
+|-----|-------------|----------|
+| PubMed (NCBI E-utilities) | No | Medical paper search, abstracts, related articles |
+| ClinicalTrials.gov v2 | No | Clinical trial search, status tracking, detailed info |
+| arXiv | No | Biomedical/bioinformatics paper search |
+| Wikipedia | No | Medical term/concept explanations, multilingual |
 
-모든 API가 무료이며 키 발급이 필요 없습니다.
+All APIs are free and require no registration.
 
-## 도구 상세 레퍼런스
+## Tool Reference
 
 ### `research_medical`
 
-핵심 도구입니다. 4개 API를 모두 호출해서 종합 의학 리서치 보고서를 생성합니다.
+The main tool. Calls all 4 APIs to generate a comprehensive medical research report.
 
-| 파라미터 | 타입 | 기본값 | 설명 |
-|---------|------|--------|------|
-| `topic` | string | *(필수)* | 연구 주제 (예: 'CGRP migraine treatment') |
-| `count` | int | `5` | 섹션별 결과 수 |
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `topic` | string | *(required)* | Research topic (e.g. 'CGRP migraine treatment') |
+| `count` | int | `5` | Number of results per section |
 
 ### `search_pubmed`
 
-| 파라미터 | 타입 | 기본값 | 설명 |
-|---------|------|--------|------|
-| `query` | string | *(필수)* | PubMed 검색어 |
-| `count` | int | `5` | 결과 수 |
-| `sort` | string | `"relevance"` | `"relevance"` 또는 `"date"` |
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `query` | string | *(required)* | PubMed search query |
+| `count` | int | `5` | Number of results |
+| `sort` | string | `"relevance"` | `"relevance"` or `"date"` |
 
 ### `paper_detail`
 
-| 파라미터 | 타입 | 기본값 | 설명 |
-|---------|------|--------|------|
-| `pmid` | string | *(필수)* | PubMed ID (예: `39876543`) |
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `pmid` | string | *(required)* | PubMed ID (e.g. `39876543`) |
 
 ### `search_trials`
 
-| 파라미터 | 타입 | 기본값 | 설명 |
-|---------|------|--------|------|
-| `query` | string | *(필수)* | 검색어 (질병, 약물, NCT ID 등) |
-| `count` | int | `5` | 결과 수 |
-| `status` | string | `""` | 상태 필터: `RECRUITING`, `COMPLETED`, `ACTIVE_NOT_RECRUITING` 등 |
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `query` | string | *(required)* | Search query (disease, drug, NCT ID, etc.) |
+| `count` | int | `5` | Number of results |
+| `status` | string | `""` | Status filter: `RECRUITING`, `COMPLETED`, `ACTIVE_NOT_RECRUITING`, etc. |
 
 ### `trial_detail`
 
-| 파라미터 | 타입 | 기본값 | 설명 |
-|---------|------|--------|------|
-| `nct_id` | string | *(필수)* | NCT ID (예: `NCT06123456`) |
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `nct_id` | string | *(required)* | NCT ID (e.g. `NCT06123456`) |
 
 ### `get_medical_concept`
 
-| 파라미터 | 타입 | 기본값 | 설명 |
-|---------|------|--------|------|
-| `term` | string | *(필수)* | 의학 용어 (예: `monoclonal antibody`) |
-| `lang` | string | `"en"` | 언어 코드 (`en`, `ko` 등) |
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `term` | string | *(required)* | Medical term (e.g. `monoclonal antibody`) |
+| `lang` | string | `"en"` | Language code (`en`, `ko`, `ja`, etc.) |
 
-## 사용 예시
+## Usage Examples
 
-설치 후 Claude에게 자연스럽게 말하면 됩니다:
+After installation, just talk to Claude naturally:
 
-**종합 리서치:**
-> "CGRP 편두통 치료제 관련 최신 연구 정리해줘"
+**Comprehensive research:**
+> "Research the latest CGRP migraine treatments"
 
-**논문 검색:**
-> "CAR-T 세포 치료 관련 PubMed 논문 찾아줘"
+**Paper search:**
+> "Find PubMed papers on CAR-T cell therapy"
 
-**논문 상세:**
-> "이 PMID 논문 초록이랑 관련 논문 보여줘"
+**Paper details:**
+> "Show me the abstract and related papers for this PMID"
 
-**임상시험 검색:**
-> "알츠하이머 면역치료 모집 중인 임상시험 찾아줘"
+**Clinical trial search:**
+> "Find recruiting clinical trials for Alzheimer's immunotherapy"
 
-**임상시험 상세:**
-> "이 NCT ID 임상시험 설계랑 적격 기준 알려줘"
+**Trial details:**
+> "Show me the study design and eligibility for this NCT ID"
 
-**개념 설명:**
-> "CGRP가 뭐야?"
+**Concept explanation:**
+> "What is CGRP?"
 
-## 요구사항
+## Requirements
 
 - Python 3.10+
-- [Claude Desktop](https://claude.ai/download) (MCP 지원)
-- API 키: **필요 없음**
+- [Claude Desktop](https://claude.ai/download) (MCP support)
+- API keys: **None required**
 
-### 의존성 패키지
+### Dependencies
 
-| 패키지 | 버전 | 용도 |
-|--------|------|------|
-| `mcp` | >= 1.0.0 | MCP SDK (FastMCP 서버 프레임워크) |
-| `httpx` | >= 0.27.0 | API 호출용 HTTP 클라이언트 |
+| Package | Version | Purpose |
+|---------|---------|---------|
+| `mcp` | >= 1.0.0 | MCP SDK (FastMCP server framework) |
+| `httpx` | >= 0.27.0 | HTTP client for API calls |
 
-## 프로젝트 구조
+## Project Structure
 
 ```
 clinical-research-mcp/
-    server.py           # 7개 도구가 정의된 MCP 서버
-    setup_wizard.py     # 대화형 설치 스크립트
+    server.py           # MCP server with 7 tools
+    setup_wizard.py     # Interactive setup script
     core/
-        pubmed.py       # PubMed/NCBI E-utilities 클라이언트
-        trials.py       # ClinicalTrials.gov v2 API 클라이언트
-        arxiv.py        # arXiv API 클라이언트
-        wikipedia.py    # Wikipedia API 클라이언트
-    requirements.txt    # Python 의존성
-    pyproject.toml      # 패키지 메타데이터
-    LICENSE             # MIT 라이선스
+        pubmed.py       # PubMed/NCBI E-utilities client
+        trials.py       # ClinicalTrials.gov v2 API client
+        arxiv.py        # arXiv API client
+        wikipedia.py    # Wikipedia API client
+    requirements.txt    # Python dependencies
+    pyproject.toml      # Package metadata
+    LICENSE             # MIT License
 ```
 
-## 주의사항
+## Disclaimer
 
-이 도구는 **정보 제공 목적**으로만 사용됩니다. 의학적 결정을 내리기 전에 반드시 의료 전문가와 상담하세요. 모든 출력에 면책 문구가 자동으로 포함됩니다.
+This tool is for **informational purposes only**. Always consult a qualified healthcare professional before making medical decisions. A medical disclaimer is automatically included in all tool outputs.
 
-## 문제 보고 & 피드백
+## Issues & Feedback
 
-버그를 발견하셨거나 아이디어가 있으신가요? 이슈를 남겨주세요:
+Found a bug or have an idea? Please open an issue:
 
 - [GitHub Issues](https://github.com/wjddusrb03/clinical-research-mcp/issues)
 
-버그 보고 시 아래 내용을 포함해주시면 빠른 해결에 도움이 됩니다:
-- 운영체제 (Windows / macOS / Linux)
-- Python 버전 (`python --version`)
-- 에러 메시지 또는 예상과 다른 동작
-- 재현 방법
+When reporting a bug, please include:
+- Operating system (Windows / macOS / Linux)
+- Python version (`python --version`)
+- Error message or unexpected behavior
+- Steps to reproduce
 
-PR(Pull Request)도 환영합니다!
+Pull requests are welcome!
 
-## 라이선스
+## License
 
-MIT License. 자세한 내용은 [LICENSE](LICENSE)를 참고하세요.
+MIT License. See [LICENSE](LICENSE) for details.
 
 ---
 
-ClinicalTrials.gov 탭 열지 말고, Claude에게 물어보세요. API 키 없이 바로 써보세요.
+Stop opening ClinicalTrials.gov tabs. Just ask Claude. No API keys needed.
